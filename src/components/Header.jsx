@@ -1,13 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
-import logo from '/public/assets/img/rdc-logo.svg'
+import logo from "/assets/img/rdc-logo.svg";
 export default function Header() {
- 
-  const location = useLocation ()
+  const location = useLocation();
   console.log(location.pathname);
 
-  function pathMatchRoute(route){
-    if(route=== location.pathname){
-      return true
+  function pathMatchRoute(route) {
+    if (route === location.pathname) {
+      return true;
     }
   }
 
@@ -19,16 +18,24 @@ export default function Header() {
         </Link>
         <ul className=" list-none flex items-center gap-6">
           <li>
-            <Link className={`${pathMatchRoute("/")} text-sm font-semibold text-gray-400  py-5  border-b-[3px] border-b-transparent`}>Home</Link>
+            <Link
+              className={`text-sm font-semibold text-gray-400  py-5 border-b-[3px] border-b-transparent 
+              ${pathMatchRoute("/") && "border-b-red-500 text-black" }`} >
+              Home
+            </Link>
           </li>
           <li>
-           <Link className=" text-sm font-semibold text-gray-400  py-5  ">Offers</Link>
+            <Link className=" text-sm font-semibold text-gray-400  py-5  ">
+              Offers
+            </Link>
           </li>
           <li>
-            <Link className=" text-sm font-semibold text-gray-400  py-5  ">Sign In</Link>
+            <Link className=" text-sm font-semibold text-gray-400  py-5  ">
+              Sign In
+            </Link>
           </li>
         </ul>
       </div>
     </div>
-  )
+  );
 }
